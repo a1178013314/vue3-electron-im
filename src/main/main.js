@@ -6,7 +6,9 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      
     }
   })
   const loadURL = `http://127.0.0.1:8095` 
