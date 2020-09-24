@@ -5,11 +5,9 @@
 
 <script>
 import { watchEffect } from 'vue'
-const fs = require('fs')
 export default {
   setup(){
     watchEffect(() => {
-      console.log(fs)
     })
   }
 }
