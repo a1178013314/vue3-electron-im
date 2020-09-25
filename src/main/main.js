@@ -14,7 +14,7 @@ function createWindow () {
   const loadURL = `http://127.0.0.1:8095` 
   // 并且为你的应用加载index.html
   win.loadURL(loadURL)
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)

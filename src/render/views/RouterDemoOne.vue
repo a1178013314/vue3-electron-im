@@ -1,3 +1,6 @@
+<style lang="less" scoped>
+</style>
+
 <template>
   路由demo1
   <h1>vue3</h1>
@@ -12,15 +15,16 @@
 <script>
 import { watchEffect } from "vue";
 const { remote } = require("electron");
-const demo = remote.require("./callDemo");
 
 export default {
   setup() {
     watchEffect(() => {});
     function callMain() {
-      // console.log("访问主进程", remote);
-      console.log("访问主进程", demo.sum(1 , 2) );
-      remote.getCurrentWindow().webContents.openDevTools();
+        const demo = remote.require("./callDemo");
+
+        console.log("访问主进程", remote);
+        console.log("访问主进程", demo.sum(1, 2));
+        remote.getCurrentWindow().webContents.openDevTools();
     }
 
     return {
@@ -29,4 +33,6 @@ export default {
   }
 };
 </script>
+
+
 

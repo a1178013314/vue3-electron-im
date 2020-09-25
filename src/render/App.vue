@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import projectPlugin from './utils/projectPlugin'
 export default {
   name: "App",
 };
