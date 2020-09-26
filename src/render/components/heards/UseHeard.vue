@@ -47,12 +47,15 @@ export default {
     }
   },
   setup(){
-    const minsize = () => {
+    function minsize(){
       remote.getCurrentWindow().minimize()
     }
-    const close = () => {
+
+    function close(){
       remote.getCurrentWindow().close()
     }
+
+
     return { 
       minsize,
       close

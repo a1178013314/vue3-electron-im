@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron')
+//创建登录页窗口
 function createWindow () {   
-  // 创建浏览器窗口
   const win = new BrowserWindow({
     width: 320,
     height: 460,
@@ -12,9 +12,21 @@ function createWindow () {
     },
   })
   const loadURL = `http://127.0.0.1:8095` 
-  // 并且为你的应用加载index.html
   win.loadURL(loadURL)
-  // win.webContents.openDevTools()
+}
+
+//创建消息窗口
+function createMessageWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      
+    },
+  })
 }
 
 app.on('ready', () => {

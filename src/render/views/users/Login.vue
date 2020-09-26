@@ -47,14 +47,15 @@
             v-model:value="userName"
             placeholder="请输入手机号..."
             class="use-input"
-            size='large'
+            size="large"
           />
           <a-input
             type="password"
             v-model:value="password"
-            placeholder="请输入密码..."
+            placeholder="选中摁回车会跳转到消息页"
             class="use-input"
-             size='large'
+            size="large"
+            @pressEnter="passWordEnter"
           />
         </div>
       </a-tab-pane>
@@ -64,9 +65,12 @@
 
 <script>
 import {} from "vue";
+import { useRouter } from 'vue-router'
 import UseHeard from "../../components/heards/UseHeard.vue";
 import qrCode from "../../assets/images/qrcode.png";
 import logo from "../../assets/images/logo.ico";
+const { remote } = require('electron')
+
 export default {
   data() {
     return {
@@ -76,9 +80,26 @@ export default {
       password: ""
     };
   },
-  steup() {
-    return {};
+  setup() {
+    const router = useRouter()
+    const passWordEnter = () => {
+      if(remote.getCurrentWindow){
+        remote.getCurrentWindow().setSize(1000, 800)
+      }
+      
+      router.push('/message/')
+
+    }
+
+    return {
+      passWordEnter
+    };
   },
+  // methods:{
+  //   passWordEnter(){
+  //     console.log(11111)
+  //   }
+  // },
   components: {
     UseHeard
   }
