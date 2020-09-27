@@ -1,1 +1,1 @@
-vue3+electroe+vite+vuerouter+ant-design-vue+less
+vue3+electron+vite+vuerouter+ant-design-vue+less
